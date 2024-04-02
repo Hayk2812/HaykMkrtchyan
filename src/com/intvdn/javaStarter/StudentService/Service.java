@@ -6,22 +6,18 @@ public class Service {
     public static void main(String[] args) {
         StudentService service = new StudentService();
         Student s1 = service.create();
+        System.out.println("***********");
         Student s2 = service.create();
+        System.out.println("***************");
         Student s3 = service.create();
+        Student[] student = {s1,s2,s3};
 
-        s1.setName("Anna");
-        s1.setAge(25);
-        System.out.println("*********");
+        Student[] smallestGirl = new Student[]{service.smallestGirl(student)};
 
-        s2.setName("Ani");
-        s2.setAge(21);
-        System.out.println("*********");
-
-        s3.setName("Mari");
-        s3.setAge(26);
-
-        for (int i = 0; i < ; i++) {
+        for (Student student1 : smallestGirl){
+            student1.printInfo();
+            System.out.println();
+        }
 
         }
     }
-}

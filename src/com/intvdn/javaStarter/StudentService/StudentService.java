@@ -5,9 +5,10 @@ import com.intvdn.javaStarter.Student.Student;
 import java.util.Scanner;
 
 public class StudentService {
-    public Student create () {
-        Student student = new Student();
+    Student student = new Student();
+    Scanner scanner = new Scanner(System.in);
 
+    public Student create() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name");
         String name = scanner.next();
@@ -22,15 +23,32 @@ public class StudentService {
         System.out.println("Enter your mark");
         double mark = scanner.nextDouble();
 
+
         student.setName(name);
         student.setSurname(surname);
         student.setAge(age);
-        student.setPHD(isphd);
         student.setGender(gender);
         student.setMark(mark);
+        student.setPHD(isphd);
         return student;
     }
-    public void Student (){
-        return;
+
+    public Student smallestGirl(Student[] students) {
+        Student mingirl = null;
+        for (Student student1 : students) {
+            if (student1.getGender() == 'F') {
+                mingirl = student1;
+            } else if (mingirl.getGender() == 'F' && student1.getAge() > mingirl.getAge()) {
+                mingirl = student1;
+
+                if (mingirl != null) {
+                    mingirl.printInfo();
+                } else {
+                    System.out.println();
+                }
+            }
+        }
+        return student;
     }
+
 }
